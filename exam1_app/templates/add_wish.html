@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>make a wish</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="container">
+
+    <div class="d-flex">
+        <div class="p-2 w-100 bg">
+            <div>
+                <h2 class="alert-heading">hello {{loggedInUser.f_name}}! Make a wish!</h2>
+            </div>
+        </div>
+        <div class="p-2 flex-shrink-0 bg">
+            <a href="/logout" style="width: 80;">Log Out</a>
+        </div>
+    </div>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li style="color: rgb(224, 0, 0);">{{message}}</li>
+        {% endfor%}
+    </ul>
+    {% endif %}
+
+    <form action="/make_wish" method="post" style="border: solid 2px black; width: 600px;">
+        {% csrf_token %}
+        <div style="padding: 10px;">
+            <div >
+                <label>I wish for:</label>
+                <input type="text" name="item" id="item" >
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea name="desc" id="desc" cols="30" rows="1" ></textarea>
+            </div>
+        </div>
+        <div class="d-flex text-white">
+            <div class="p-2 flex-shrink-0 bg">
+                <a href="/dashboard" class="btn btn-outline-dark" style="width: 100px;">Cancel</a>
+            </div>
+            <div class="p-2 flex-shrink-0 bg">
+                <button type="submit" class="btn btn-outline-dark" >Submit</button>
+            </div>
+        </div>
+    </form>
+    
+
+
+
+</body>
+
+</html>

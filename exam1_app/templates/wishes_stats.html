@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stats</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body class="container">
+
+    <div class="d-flex ">
+        <div class="p-2 w-100 bg">
+                <h2 class="alert-heading">Hello {{loggedInUser.f_name}}! These are your stats!</h2>
+        </div>
+        <div class="p-2 flex-shrink-0 bg">
+            <a href="/dashboard">Dahsboard</a>
+        </div>
+        <div class="p-2 flex-shrink-0 bg">
+            <a href="/logout" style="width: 100px;">Log Out</a>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <h3>Total wishes granted so far for all users: {{all_granted_wishes.count}}</h3><br>
+        <h5>Your granted wishes:{{user_granted_wishes.count}}</h5>
+        <h5>Your pending wishes: {{not_granted.count}}</h5>
+
+    </div>
+
+</body>
+
+</html>
